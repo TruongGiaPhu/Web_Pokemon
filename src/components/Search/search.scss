@@ -1,0 +1,85 @@
+.search {
+    background-color: #616161;
+    padding: 10px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input {
+        position: relative;
+        display: inline-block;
+        font-size: 20px;
+        transition: 0.5s;
+        &[type='search'] {
+            background-color: white;
+            width: 340px;
+            height: 50px;
+            border: none;
+            outline: none;
+            padding: 0 25px;
+            border-radius: 25px 0 0 25px;
+            // &:focus ~ .search__dropdown {
+            //     opacity: 1;
+            //     visibility: visible;
+            // }
+        }
+        &[type='submit'] {
+            position: relative;
+            border-radius: 0 25px 25px 0;
+            width: 150px;
+            left: -5px;
+            height: 50px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background-color: #ffc107;
+            color: #fff;
+            &:hover {
+                background-color: #ff5722;
+            }
+        }
+    }
+    &__dropdown {
+        width: 310px;
+        position: absolute;
+        left: 50%;
+        top: 90%;
+        transform: translateX(-71%);
+        z-index: 2;
+        max-height: min((88vh - 96px) - 60px, 734px);
+        min-height: 50px;
+        box-sizing: 8px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: rgb(0 0 0 /12%) 0px 2px 12px;
+        padding-top: 8px;
+        overflow: hidden auto;
+        border-radius: 4px;
+        text-align: center;
+        opacity: 0;
+        visibility: hidden;
+        > h3 {
+            color: #ff5722;
+            // font-size: 20px;
+            // background-color: red;
+            margin-top: 10px;
+        }
+        ul {
+            flex-direction: column;
+            li {
+                cursor: pointer;
+                width: 100%;
+                padding: 10px 0 10px 0;
+                &:hover {
+                    background-color: red;
+                }
+                span {
+                    font-size: 20px;
+                }
+            }
+        }
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}

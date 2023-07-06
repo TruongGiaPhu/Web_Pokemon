@@ -1,0 +1,19 @@
+@use '../../scss/' as *;
+
+.pokemon__List {
+    padding: 0 var(--padding);
+    .pokemon__List-item {
+        font-weight: bold;
+        overflow: hidden;
+        margin-top: 10px;
+        margin-left: calc(-1 * var(--spacing));
+        padding: 15px 10px 0 10px;
+        max-width: 1660px;
+        min-height: 1000px;
+        @include flex(center, unset);
+        flex-wrap: wrap;
+        @include mobile {
+            padding: 0 100px;
+        }
+    }
+}

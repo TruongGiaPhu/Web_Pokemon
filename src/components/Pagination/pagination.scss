@@ -1,0 +1,77 @@
+@use '../../scss/' as *;
+
+.paganation {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+    background-color: white;
+    height: 60px;
+    border-top: 2px solid red;
+    color: black;
+    text-align: center;
+    // margin: 30px 30px 60px;
+    user-select: none;
+    li {
+        display: inline-block;
+        margin: 5px;
+        box-shadow: $box-shadow;
+        // font-size: 2;
+    }
+    .previous_page,
+    .next_page {
+        // background: rgba(216, 73, 73, 0.2);
+        width: 80px;
+        border-radius: 45px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        @include flex(center, center);
+        &:hover {
+            background: #007bff;
+            color: white;
+        }
+        &.disabled {
+            &:hover {
+                background-color: #cccccc;
+                color: #666666;
+            }
+        }
+        @include mobile {
+            height: 20px;
+            width: 50px;
+        }
+    }
+
+    .current_page,
+    .dots_page {
+        // background-color: blue;
+        height: 30px;
+        width: 30px;
+        @include flex(center, center);
+
+        border-radius: 50%;
+        cursor: pointer;
+        &:hover {
+            background: #007bff;
+            color: white;
+        }
+        @include mobile {
+            height: 20px;
+            width: 20px;
+        }
+    }
+
+    .active {
+        background: #007bff;
+        color: white;
+    }
+
+    .disabled {
+        border: 1px solid #999999;
+        background-color: #cccccc;
+        color: #666666;
+        cursor: unset;
+    }
+}
+// .pagination-container a:hover:not(.active) {
+//     background-color: rgb(238, 238, 238);
+// }

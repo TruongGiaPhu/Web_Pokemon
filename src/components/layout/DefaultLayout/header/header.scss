@@ -1,0 +1,140 @@
+@use '../../../../scss/' as *;
+
+.header {
+    @include flex(center, space-between);
+    position: sticky;
+    z-index: 3;
+    top: 0;
+    height: 60px;
+    background-color: rgb(197, 97, 97);
+    // max-width: 1660px;
+    padding: 0 var(--padding);
+    margin: auto;
+    // box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: $box-shadow;
+
+    @include tablet {
+        padding: 0 10px;
+    }
+
+    &__left {
+        @include flex(center, unset);
+        &__logo {
+            margin-left: 10px;
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+        }
+    }
+    &__right {
+        height: 100%;
+        @include flex(center, center);
+        &__icon {
+            width: 45px;
+            height: 100%;
+            display: none;
+            cursor: pointer;
+
+            @include mobile {
+                @include flex(center, center);
+            }
+
+            &__menu {
+                width: 35px;
+                height: 4px;
+                background-color: #fff;
+                border-radius: 5px;
+                position: relative;
+                transition: var(--animation);
+                // transform: ;
+                &:before,
+                &:after {
+                    content: '';
+                    width: 35px;
+                    height: 4px;
+                    background-color: #fff;
+                    border-radius: 5px;
+                    position: absolute;
+                    transition: var(--animation);
+                }
+                &::before {
+                    transform: translateY(-10px);
+                }
+                &::after {
+                    transform: translateY(10px);
+                }
+                &:hover {
+                    background-color: yellow;
+                    &:before,
+                    &:after {
+                        background-color: yellow;
+                    }
+                }
+                &.active {
+                    transform: translateX(-50px);
+                    background: transparent;
+                    &::before {
+                        transform: rotate(45deg) translate(35px, -35px);
+                    }
+                    &::after {
+                        transform: rotate(-45deg) translate(35px, 35px);
+                    }
+                }
+            }
+        }
+
+        &__menu {
+            height: 100%;
+
+            &__item {
+                font-size: 25px;
+                height: 100%;
+
+                .header__link {
+                    height: 100%;
+                    padding: 0 20px;
+                    @include flex(center, center);
+                    &:hover,
+                    &.active {
+                        background-color: #919191;
+                        border-bottom: 4px solid yellow;
+                        color: white;
+                    }
+                }
+            }
+            @include mobile {
+                flex-direction: column;
+                position: absolute;
+                height: 100vh;
+                width: 100%;
+                top: 60px;
+                left: -100%;
+                background-color: #24262b;
+                z-index: 3;
+                transition: var(--animation);
+                &.active {
+                    display: flex;
+                    left: 0;
+                    transition: var(--animation);
+                }
+                &__item {
+                    height: 50px;
+                    margin: 10px 0 10px 0;
+                    .header__link {
+                        height: 100%;
+                        background-color: rgba(255, 255, 255, 0.2);
+                        width: 180px;
+                        border-radius: 10px;
+                        &:hover,
+                        &.active {
+                            border-bottom: initial;
+                        }
+                    }
+                }
+            }
+            // &.active {
+            //     display: none;
+            // }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+.Modal_Popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    &.hide {
+        display: none;
+    }
+    &_inner {
+        width: 400px;
+        position: relative;
+        top: 50%;
+        margin: auto;
+        background: white;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    &_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        background: red;
+        color: white !important;
+        font-weight: 500;
+    }
+    &_body {
+        padding: 15px;
+    }
+}
